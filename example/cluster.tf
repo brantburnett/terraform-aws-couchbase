@@ -1,6 +1,10 @@
 module "cluster" {
-  source = "../"
+  source  = "brantburnett/couchbase/aws"
+  version = "0.1.0"
 
+  # Switch to this line for local dev
+  # source = "../"
+  
   couchbase_edition      = "enterprise"
   couchbase_version      = "5.0.1"
   cluster_name           = "Couchbase Example"
