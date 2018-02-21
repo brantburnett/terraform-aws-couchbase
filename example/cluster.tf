@@ -1,6 +1,6 @@
 module "cluster" {
   source  = "brantburnett/couchbase/aws"
-  version = "0.1.0"
+  version = "~> 0.1.0"
 
   # Switch to this line for local dev
   # source = "../"

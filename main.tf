@@ -38,6 +38,7 @@ module "mds_group_1" {
   data_volume                      = "${local.data_volume["1"]}"
   ebs_optimized                    = "${local.ebs_optimized["1"]}"
   additional_initialization_script = "${local.additional_initialization_script["1"]}"
+  auto_rebalance                   = "${var.auto_rebalance}"
 
   rally_autoscaling_group_id       = ""
 }
@@ -74,6 +75,7 @@ module "mds_group_2" {
   data_volume                      = "${local.data_volume["2"]}"
   ebs_optimized                    = "${local.ebs_optimized["2"]}"
   additional_initialization_script = "${local.additional_initialization_script["2"]}"
+  auto_rebalance                   = "${var.auto_rebalance}"
 
   rally_autoscaling_group_id       = "${module.mds_group_1.autoscaling_group_id}"
 }
@@ -110,6 +112,7 @@ module "mds_group_3" {
   data_volume                      = "${local.data_volume["3"]}"
   ebs_optimized                    = "${local.ebs_optimized["3"]}"
   additional_initialization_script = "${local.additional_initialization_script["3"]}"
+  auto_rebalance                   = "${var.auto_rebalance}"
 
   rally_autoscaling_group_id       = "${module.mds_group_1.autoscaling_group_id}"
 }
@@ -146,6 +149,7 @@ module "mds_group_4" {
   data_volume                      = "${local.data_volume["4"]}"
   ebs_optimized                    = "${local.ebs_optimized["4"]}"
   additional_initialization_script = "${local.additional_initialization_script["4"]}"
+  auto_rebalance                   = "${var.auto_rebalance}"
 
   rally_autoscaling_group_id       = "${module.mds_group_1.autoscaling_group_id}"
 }
@@ -182,6 +186,7 @@ module "mds_group_5" {
   data_volume                      = "${local.data_volume["5"]}"
   ebs_optimized                    = "${local.ebs_optimized["5"]}"
   additional_initialization_script = "${local.additional_initialization_script["5"]}"
+  auto_rebalance                   = "${var.auto_rebalance}"
 
   rally_autoscaling_group_id       = "${module.mds_group_1.autoscaling_group_id}"
 }
