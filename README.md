@@ -10,7 +10,7 @@ For a variable reference, see the `variables.tf` file.
 
 ## Example
 
-There is an example available in the [example folder](./example).
+There is an example available in the [example folder](https://github.com/brantburnett/terraform-aws-couchbase/tree/master/example).
 
 ## Multidimensional Scaling Groups
 
