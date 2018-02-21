@@ -45,6 +45,10 @@ resource "aws_autoscaling_group" "node" {
   max_size             = "${var.node_count}"
   vpc_zone_identifier  = ["${var.subnet_ids}"]
 
+  # Don't wait for instances to start
+  # This allows the use of https://github.com/brantburnett/terraform-aws-autoscaling-route53-srv
+  wait_for_capacity_timeout = 0
+
   tags = ["${concat(
     list(
       map("key", "Name", "value", "${var.cluster_name} ${var.name}", "propagate_at_launch", "true"),
