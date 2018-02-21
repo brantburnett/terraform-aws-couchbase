@@ -3,7 +3,7 @@ terraform {
 }
 
 locals {
-  iam_instance_profile = "${coalesce(var.iam_instance_profile, aws_iam_instance_profile.couchbase.name)}"
+  iam_instance_profile = "${element(concat(compact(list(var.iam_instance_profile)), aws_iam_instance_profile.couchbase.*.name), 0)}"
 }
 
 module "mds_group_1" {

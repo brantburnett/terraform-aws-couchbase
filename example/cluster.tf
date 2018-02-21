@@ -1,9 +1,9 @@
 module "cluster" {
-  source  = "brantburnett/couchbase/aws"
-  version = "~> 0.1.0"
+  #source  = "brantburnett/couchbase/aws"
+  #version = "~> 0.1.0"
 
   # Switch to this line for local dev
-  # source = "../"
+  source = "../"
   
   couchbase_edition      = "enterprise"
   couchbase_version      = "5.0.1"
@@ -13,9 +13,9 @@ module "cluster" {
 
   # Number of nodes for each MDS group (up to 5 groups)
   node_count = {
-    "1" = 2
+    "1" = 1
     "2" = 1
-    "3" = 1
+    "3" = 1 
   }
 
   # Services for each MDS group
