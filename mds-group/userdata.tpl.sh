@@ -260,7 +260,7 @@ CB_REST_PASSWORD=${cluster_admin_password}
 
 # Rebalance, if enabled
 
-if [ ${auto_rebalance ? "true" : "false"} ]; then
+if [ "${auto_rebalance ? "true" : "false"}" == "true" ]; then
   while true
   do
     echo "Running Couchbase rebalance..."
