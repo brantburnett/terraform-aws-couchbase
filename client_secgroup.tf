@@ -10,7 +10,7 @@ resource "aws_security_group_rule" "client_rest" {
 
     type            = "ingress"
     from_port       = 8091
-    to_port         = 8094
+    to_port         = 8096
     protocol        = "tcp"
     source_security_group_id = "${element(var.client_security_group_ids, count.index)}"
 }
@@ -21,7 +21,7 @@ resource "aws_security_group_rule" "client_restssl" {
 
     type            = "ingress"
     from_port       = 18091
-    to_port         = 18094
+    to_port         = 18096
     protocol        = "tcp"
     source_security_group_id = "${element(var.client_security_group_ids, count.index)}"
 }
@@ -54,7 +54,7 @@ resource "aws_security_group_rule" "client_rest_cidr" {
 
     type            = "ingress"
     from_port       = 8091
-    to_port         = 8094
+    to_port         = 8096
     protocol        = "tcp"
     cidr_blocks     = "${var.client_cidr_blocks}"
 }
@@ -65,7 +65,7 @@ resource "aws_security_group_rule" "client_restssl_cidr" {
 
     type            = "ingress"
     from_port       = 18091
-    to_port         = 18094
+    to_port         = 18096
     protocol        = "tcp"
     cidr_blocks     = "${var.client_cidr_blocks}"
 }

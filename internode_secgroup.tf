@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "rest" {
 
     type            = "ingress"
     from_port       = 8091
-    to_port         = 8094
+    to_port         = 8096
     protocol        = "tcp"
     source_security_group_id = "${aws_security_group.internode.id}"
 }
@@ -44,6 +44,16 @@ resource "aws_security_group_rule" "indexer" {
     type            = "ingress"
     from_port       = 9100
     to_port         = 9105
+    protocol        = "tcp"
+    source_security_group_id = "${aws_security_group.internode.id}"
+}
+
+resource "aws_security_group_rule" "cbas" {
+    security_group_id = "${aws_security_group.internode.id}"
+
+    type            = "ingress"
+    from_port       = 9110
+    to_port         = 9122
     protocol        = "tcp"
     source_security_group_id = "${aws_security_group.internode.id}"
 }

@@ -26,6 +26,16 @@ variable "cluster_ram_size" {
 	}
 }
 
+variable "analytics_mpp" {
+    type        = "list"
+    description = "List of names for each analytics data folder for MPP.  Should normally match the number of cores."
+
+    default = [
+        "0",
+        "1",
+    ]
+}
+
 variable "installer_url" {
 	description = "URL for installer to download and install on each instance, uses default if blank"
 	default = ""

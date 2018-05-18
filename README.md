@@ -104,3 +104,35 @@ Auto rebalancing is enabled by default.  This is useful for development and new 
 8.  Repeat steps 5-7 one node at a time until all nodes have been swapped.
 9.  Use the AWS Console or CLI to remove the final leftover node from the Auto Scaling Group while *decreasing* the desired capacity.
 10. Terminate the leftover node
+
+## Support for Analytics Developer Preview
+
+When deploying a Couchbase Server 5.5 cluster, you may wish to include the Analytics service.  To do so, include the service
+on one of your MDS groups, set the RAM size for analytics, and supply an analytics_mpp:
+
+```terraform
+services = {
+    "1" = ["data"]
+    "2" = ["index"]
+    "3" = ["query"]
+    "4" = ["analytics"]
+}
+
+cluster_ram_size = {
+    data      = 8000
+    index     = 4000
+    fts       = 2000
+    analytics = 8000
+}
+
+# For Analytics nodes with 4 CPU cores, this list has 4 unique values
+analytics_mpp = [
+    "0",
+    "1",
+    "2",
+    "3",
+]
+```
+
+Values for analytics_mpp should be unique and should not include path reserved characters.  For optimum performance,
+you should have the same number of values in this list as the number of CPU cores on your analytics nodes.

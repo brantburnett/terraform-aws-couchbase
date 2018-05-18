@@ -85,7 +85,9 @@ data "template_file" "user_data" {
     data_ramsize               = "${var.cluster_ram_size["data"]}"
     index_ramsize              = "${var.cluster_ram_size["index"]}"
     fts_ramsize                = "${var.cluster_ram_size["fts"]}"
+    analytics_ramsize          = "${lookup(var.cluster_ram_size, "analytics", 0)}"
     services                   = "${join(",", var.services)}"
+    analytics_paths            = "${contains(var.services, "analytics") ? join(" ", formatlist("--node-init-analytics-path $DATADIR/analytics%s", var.analytics_mpp)) : ""}"
     rally_autoscaling_group_id = "${var.rally_autoscaling_group_id}"
 
     additional_initialization_script = "${var.additional_initialization_script}"

@@ -98,6 +98,7 @@ do
     --cluster $$nodeDNS \
     --node-init-data-path $$DATADIR/data \
     --node-init-index-path $$DATADIR/index \
+    ${analytics_paths} \
     --node-init-hostname $$nodeDNS \
     --user Administrator \
     --password $$tempPassword \
@@ -183,6 +184,7 @@ if [ "$$rallyDNS" == "$$nodeDNS" ]; then
     --cluster $$rallyDNS \
     --cluster-username=${cluster_admin_username} --cluster-password=${cluster_admin_password} \
     --cluster-ramsize=${data_ramsize} --cluster-index-ramsize=${index_ramsize} --cluster-fts-ramsize=${fts_ramsize} \
+    ${analytics_ramsize > 0 ? "--cluster-analytics-ramsize=${analytics_ramsize}" : ""} \
     --index-storage-setting=${index_storage} --services=${services} ${cluster_name_init == "" ? "" : "--cluster-name \"${cluster_name_init}\""}
 
   if [ "${couchbase_edition}" == "enterprise" ]; then
