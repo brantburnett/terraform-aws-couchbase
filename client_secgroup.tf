@@ -1,5 +1,5 @@
 resource "aws_security_group" "client" {
-    name        = "Couchbase Client"
+    name_prefix = "CouchbaseClient"
     description = "Allows Couchbase protocols from clients to nodes in the cluster"
     vpc_id      = "${data.aws_subnet.first.vpc_id}"
 }

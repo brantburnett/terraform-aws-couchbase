@@ -3,7 +3,7 @@ data "aws_subnet" "first" {
 }
 
 resource "aws_security_group" "internode" {
-    name        = "Couchbase Inter-Node"
+    name_prefix = "CouchbaseInterNode"
     description = "Allows Couchbase protocols between nodes in the cluster"
     vpc_id      = "${data.aws_subnet.first.vpc_id}"
 }
